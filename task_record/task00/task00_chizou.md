@@ -56,13 +56,13 @@
 
 安装pipenv，python3.8
 
-`brew install pipenv`
+`brew install pipenv` 安装一次即可
 
 激活环境：`pipenv shell`
 
 此后可以看到命令行前面出现（backend）
 
-安装python3.8: `pipenv install --python 3.8`
+> 默认为最新3.9，可不安装python3.8: `pipenv install --python 3.8`
 
 同步依赖包（会下载）：`pipenv sync` #同步下载项目模块，不需要额外下载django
 
@@ -85,6 +85,8 @@
 
 
 启动后端服务：`python manage.py runserver`
+
+python manage.py runserver 8888
 
 
 
@@ -121,4 +123,18 @@
 ## 调试
 
 浏览器输入：http://localhost:**8080**/
+
+
+
+## git使用
+
+git clone [git@github.com](mailto:git@github.com):YetAnotherWebTeam/whale-web.git
+
+git push origin master
+
+git add
+
+git commit -m xxx
+
+
 
