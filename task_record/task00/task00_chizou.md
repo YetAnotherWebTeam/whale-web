@@ -126,15 +126,7 @@ python manage.py runserver 8888
 
 
 
-## git使用
 
-git clone [git@github.com](mailto:git@github.com):YetAnotherWebTeam/whale-web.git
-
-git push origin master
-
-git add
-
-git commit -m xxx
 
 
 
