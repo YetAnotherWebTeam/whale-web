@@ -231,6 +231,19 @@ components:
           type: array
           items:
             $ref: "#/components/schemas/Group"
+        pic:
+          type: string
+          format: url
+        wechat:
+          type: string
+        school:
+          type: string
+        profession:
+          type: string
+        company:
+          type: string
+        position:
+          type: string
     Group:
       type: object
       properties:
