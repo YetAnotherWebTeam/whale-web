@@ -66,6 +66,22 @@ tag：user-auth-manage
 | /edit-user                      | 修改某个用户权限     | 修改core_user_user_permissions+core_user_groups              | Post     | user_id，permission_id | 200:{data:UserAuth，code：0}      |
 | /query-user                     | 查询某个用户的权限   | 从core_user_groups到auth_group_permissions + core_user_user_permissions | get      |      user_id，group_id | 200:{data:UserAuth，code：0}      |
 
+### 超级管理员组管理
+
+tag：group-auth-manage
+
+前缀：/api/v1/group-auth-manage
+
+| url  | 含义           | 实现 | 请求方法 | 请求参数 | 返回 |
+| ---- | -------------- | ---- | -------- | -------- | ---- |
+|      | 查询所有组     |      |          |          |      |
+|      | 新增组         |      |          |          |      |
+|      | 删除组         |      |          |          |      |
+|      | 查看某个组权限 |      |          |          |      |
+|      | 编辑某个组权限 |      |          |          |      |
+
+
+
 ### 关于权限与组的设计与数据表
 
 组信息：auth_group
