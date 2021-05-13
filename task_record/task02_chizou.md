@@ -59,8 +59,8 @@ tag：user-auth-manage
 | url                             | 含义                 | 实现                                                         | 请求方法 |               请求参数 | 返回                              |
 | ------------------------------- | -------------------- | ------------------------------------------------------------ | -------- | ---------------------: | --------------------------------- |
 | /user-update                    | 用户修改个人信息     | 修改core_user                                                | post     |                   User | 200:{data:User, code:0}           |
-| /group                          | 查看组内所有成员     | 查询auth_gropu                                               | get      |                     无 | 200:{data:Group，code：0}         |
-| /group-detail/{group_id}        | 查看某个组成员       | 查询core_user_groups+core_user                               | get      |               group_id | 200:{data:[GroupUser]，code：0}   |
+| /group-user                     | 查看组内所有成员     | 查询auth_gropu                                               | get      |                     无 | 200:{data:Group，code：0}         |
+| /group-user-detail/{group_id}   | 查看某个组成员       | 查询core_user_groups+core_user                               | get      |               group_id | 200:{data:[GroupUser]，code：0}   |
 | /group-add                      | 组增加人员           | core_user_groups增加一条记录                                 | post     |      user_id，group_id | 200:{data:[GroupUser]表,code:0}   |
 | /group-del/{user_id}/{group_id} | 从组内删除用户（将） | core_user_groups增加一条记录                                 | delete   |      user_id，group_id | 200:{data:~~[GroupUser]~~,code:0} |
 | /edit-user                      | 修改某个用户权限     | 修改core_user_user_permissions+core_user_groups              | Post     | user_id，permission_id | 200:{data:UserAuth，code：0}      |
@@ -72,13 +72,14 @@ tag：group-auth-manage
 
 前缀：/api/v1/group-auth-manage
 
-| url  | 含义           | 实现 | 请求方法 | 请求参数 | 返回 |
-| ---- | -------------- | ---- | -------- | -------- | ---- |
-|      | 查询所有组     |      |          |          |      |
-|      | 新增组         |      |          |          |      |
-|      | 删除组         |      |          |          |      |
-|      | 查看某个组权限 |      |          |          |      |
-|      | 编辑某个组权限 |      |          |          |      |
+| url                     | 含义                         | 实现                                                         | 请求方法 | 请求参数        | 返回                              |
+| ----------------------- | ---------------------------- | ------------------------------------------------------------ | -------- | --------------- | --------------------------------- |
+| /group                  | 查询所有组                   | 查询auth_group                                               | get      | 无              | 200{data:Group,code:0}            |
+| /group-add              | 新增组                       | 新增一条auth_group记录，                                     | post     | groupid         | 200{data:Group,code:0}            |
+| /gropu-delete/{groupid} | 删除组                       | 删除一条auth_group记录，对auth_group_permissions，core_user_groups进行处理 | delete   | groupid         | 200:{}                            |
+| /group-auth/{groupid}   | 查看某个组权限               | 查询auth_group_permissions                                   | get      | groupid         | 200:{data:GroupPermission,code:0} |
+| /group-auth-edit        | 编辑某个组权限               | 编辑auth_group_permissions                                   | post     | GroupPermission | 200:{data:GroupPermission,code:0} |
+| ？                      | 所有权限管理（组内，非组内） | 仅通过数据库编辑                                             |          |                 |                                   |
 
 
 
@@ -134,6 +135,11 @@ User：{
 +Permission: {
   permission_id:integer/int64,
   perssion_name:string
+}
+
++GroupPermission: {
+  Group,
+  [Permission]
 }
 }
 ```
