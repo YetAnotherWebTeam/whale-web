@@ -200,6 +200,11 @@ Article:{
 
 ### 数据表
 
-blog_article:+category_id(外链)/int
+blog_article：+category_id(外链)/int
 
 +blog_category：id/int,name/varchar(10)
+
+
+
+## 参考资料
+
