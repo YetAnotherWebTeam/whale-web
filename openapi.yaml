@@ -233,6 +233,19 @@ components:
           type: array
           items:
             $ref: "#/components/schemas/Group"
+        picture:
+          type: string
+          format: picture
+        college:
+          type: string
+        majors:
+          type: string
+        company:
+          type: string
+        career:
+          type: string
+        permissions:
+          type: string
     Group:
       type: object
       properties:
