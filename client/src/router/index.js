@@ -37,6 +37,11 @@ const routes = [
         component: () => import('../views/QA.vue'),
       },
       {
+        path:'region',
+        name:'region',
+        component:()=>import('../views/Region.vue'),
+      },
+      {
         path: 'subscribes',
         name: 'subscribes',
         component: () => import('../views/Subscribes.vue'),
