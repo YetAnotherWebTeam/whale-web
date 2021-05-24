@@ -22,8 +22,11 @@ class User(AbstractBaseUser, PermissionsMixin):
     date_joined = models.DateTimeField(_('date joined'), default=timezone.now)
     description = models.TextField(_('description'), blank=True)
     last_login_ip = models.CharField(_('last login ip'), max_length=64, blank=True)
-
+    school = models.CharField(_('school'),max_length=128,blank=True)
+    company = models.CharField(_('company'),max_length=128,blank=True)
     objects = UserManager()
+
+
 
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = []
